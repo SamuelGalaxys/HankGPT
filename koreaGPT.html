@@ -335,15 +335,25 @@
       const textarea = document.getElementById("my-textarea");
       const textX = textarea.value;
       const replacedText = textX.replace(/습니다/g, "다")
-      .replace(/입니다/g, "이다").replace(/합니다/g, "한다").replace(/됩니다/g, "된다").replace(/입니까/g, "인가").replace(/인가요/g, "인가").replace(/옵니다/g, "온다").replace(/하십니다/g, "하신다").replace(/생깁니다/g, "생긴다").replace(/바랍니다/g, "바란다");
+      .replace(/입니다/g, "이다").replace(/합니다/g, "한다").replace(/됩니다/g, "된다").replace(/입니까/g, "인가").replace(/인가요/g, "인가").replace(/옵니다/g, "온다").replace(/하십니다/g, "하신다").replace(/생깁니다/g, "생긴다").replace(/바랍니다/g, "바란다").replace(/줍니다/g, "준다");
       const greeting = replacedText;
+
+
+
+
+      const randomDelays = [10,11,9,10,10,32,10,27,10,10,50,11,9,40,10,32,10,50,11,9,10,60,32,10,27,10,10,10,11,9,50,10,32,10,27, 12, 14, 18, 19, 20, 25, 30, 5, 6, 7, 8, 500];
       let i = 0;
   
       function typeWriter() {
         if (i < greeting.length) {
           document.getElementById("textQ").innerHTML += greeting.charAt(i);
           i++;
-          setTimeout(typeWriter, 50);
+
+          //랜덤으로 함수
+          const randomIndex = Math.floor(Math.random() * randomDelays.length);
+          const randomDelay = randomDelays[randomIndex];
+          setTimeout(typeWriter, 1);
+          console.log(randomDelay);
 
         }else{
 
